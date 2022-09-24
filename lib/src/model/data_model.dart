@@ -18,25 +18,26 @@ class Data {
   String? partieNumber;
   String? partieCheckDigit;
 
-  Data(
-      {accountId,
-      customerId,
-      organizationId,
-      organizationName,
-      transactionId,
-      completedAuthorisedPaymentType,
-      creditDebitType,
-      transactionName,
-      type,
-      amount,
-      transactionCurrency,
-      transactionDate,
-      partieCnpjCpf,
-      partiePersonType,
-      partieCompeCode,
-      partieBranchCode,
-      partieNumber,
-      partieCheckDigit});
+  Data({
+    accountId,
+    customerId,
+    organizationId,
+    organizationName,
+    transactionId,
+    completedAuthorisedPaymentType,
+    creditDebitType,
+    transactionName,
+    type,
+    amount,
+    transactionCurrency,
+    transactionDate,
+    partieCnpjCpf,
+    partiePersonType,
+    partieCompeCode,
+    partieBranchCode,
+    partieNumber,
+    partieCheckDigit,
+  });
 
   Data.fromJson(Map<String, dynamic> json) {
     accountId = json['accountId'];
