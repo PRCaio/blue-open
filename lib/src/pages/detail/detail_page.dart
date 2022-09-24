@@ -59,21 +59,42 @@ class _DetailPageState extends State<DetailPage> {
     // // log(formatted.toString());
 
     return Card(
-      elevation: 9,
-      child: PieChart(
-        PieChartData(
-          centerSpaceRadius: 10,
-          borderData: FlBorderData(show: true),
-          pieTouchData: PieTouchData(enabled: true),
-          sections: [
-            PieChartSectionData(value: 10, color: Colors.purple, radius: 100),
-            PieChartSectionData(value: 20, color: Colors.amber, radius: 110),
-            PieChartSectionData(value: 30, color: Colors.green, radius: 120)
-          ],
-        ),
-        swapAnimationDuration: const Duration(milliseconds: 150), // Optional
-        swapAnimationCurve: Curves.linear, // Optional
-      ),
-    );
+        elevation: 9,
+        child: Container(
+          child: Column(
+            children: [
+              Text("alou"),
+              Expanded(
+                child: PieChart(
+                  PieChartData(
+                    centerSpaceRadius: 10,
+                    borderData: FlBorderData(show: true),
+                    pieTouchData: PieTouchData(enabled: true),
+                    sections: [
+                      PieChartSectionData(
+                          value: 10, color: Colors.purple, radius: 100),
+                      PieChartSectionData(
+                          value: 20, color: Colors.amber, radius: 110),
+                      PieChartSectionData(
+                          value: 30, color: Colors.green, radius: 120)
+                    ],
+                  ),
+                  swapAnimationDuration:
+                      const Duration(milliseconds: 150), // Optional
+                  swapAnimationCurve: Curves.linear, // Optional
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const DetailPage()),
+                  );
+                },
+                child: const Text('Detalhar'),
+              ),
+            ],
+          ),
+        ));
   }
 }

@@ -1,5 +1,6 @@
 import 'package:blue_open/src/pages/detail/detail_page.dart';
 import 'package:flutter/material.dart';
+import 'package:pie_chart/pie_chart.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
