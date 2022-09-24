@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-
 import 'package:intl/intl.dart';
+import 'package:fl_chart/fl_chart.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
+
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  int _currentPage = 0;
+
+  final _controller = PageController(initialPage: 0);
+  final _duration = const Duration(milliseconds: 300);
+  final _curve = Curves.easeInOutCubic;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() {
+      setState(() {
+        _currentPage = _controller.page!.round();
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +59,7 @@ class DetailPage extends StatelessWidget {
     final DateTime now = DateTime.now();
     final DateFormat formatter = DateFormat('MMMM');
     final String formatted = formatter.format(now);
-    print(formatted);
+    // log(formatted.toString());
 
     return Card(
       child: ExpansionTile(
