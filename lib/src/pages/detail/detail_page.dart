@@ -35,46 +35,34 @@ class _DetailPageState extends State<DetailPage> {
         centerTitle: true,
         title: const Text('Gastos'),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 0.0),
-          child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            physics: const BouncingScrollPhysics(),
-            itemCount: monthModel.length,
-            itemBuilder: (BuildContext context, int index) {
-              return _buildPlayerModelList(monthModel[index]);
-            },
-          ),
-        ),
-      ),
+      body: _buildPlayerModelList(),
     );
   }
 
-  Widget _buildPlayerModelList(int items) {
-    Random random = Random();
-    int randomNumber = random.nextInt(100);
-    items = randomNumber;
-    final DateTime now = DateTime.now();
-    final DateFormat formatter = DateFormat('MMMM');
-    final String formatted = formatter.format(now);
-    // log(formatted.toString());
+  Widget _buildPlayerModelList() {
+    // Random random = Random();
+    // int randomNumber = random.nextInt(100);
+    // items = randomNumber;
+    // final DateTime now = DateTime.now();
+    // final DateFormat formatter = DateFormat('MMMM');
+    // final String formatted = formatter.format(now);
+    // // log(formatted.toString());
 
     return Card(
-      child: ExpansionTile(
-        title: Text(
-          items.toString(),
-          style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
+      elevation: 9,
+      child: PieChart(
+        PieChartData(
+          centerSpaceRadius: 10,
+          borderData: FlBorderData(show: true),
+          pieTouchData: PieTouchData(enabled: true),
+          sections: [
+            PieChartSectionData(value: 10, color: Colors.purple, radius: 100),
+            PieChartSectionData(value: 20, color: Colors.amber, radius: 110),
+            PieChartSectionData(value: 30, color: Colors.green, radius: 120)
+          ],
         ),
-        children: [
-          ListTile(
-            title: Text(
-              items.toString(),
-              style: const TextStyle(fontWeight: FontWeight.w700),
-            ),
-          )
-        ],
+        swapAnimationDuration: const Duration(milliseconds: 150), // Optional
+        swapAnimationCurve: Curves.linear, // Optional
       ),
     );
   }
