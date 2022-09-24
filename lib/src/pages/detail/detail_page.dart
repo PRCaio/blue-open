@@ -67,16 +67,16 @@ class _DetailPageState extends State<DetailPage> {
               Expanded(
                 child: PieChart(
                   PieChartData(
-                    centerSpaceRadius: 10,
+                    centerSpaceRadius: 40,
                     borderData: FlBorderData(show: true),
                     pieTouchData: PieTouchData(enabled: true),
                     sections: [
                       PieChartSectionData(
-                          value: 10, color: Colors.purple, radius: 100),
+                          value: 10, color: Colors.purple, radius: 70),
                       PieChartSectionData(
-                          value: 20, color: Colors.amber, radius: 110),
+                          value: 20, color: Colors.amber, radius: 80),
                       PieChartSectionData(
-                          value: 30, color: Colors.green, radius: 120)
+                          value: 30, color: Colors.green, radius: 90)
                     ],
                   ),
                   swapAnimationDuration:
@@ -84,14 +84,33 @@ class _DetailPageState extends State<DetailPage> {
                   swapAnimationCurve: Curves.linear, // Optional
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const DetailPage()),
-                  );
-                },
-                child: const Text('Detalhar'),
+              Padding(
+                padding: const EdgeInsets.all(50.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DetailPage()),
+                        );
+                      },
+                      child: const Text('Detalhar'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DetailPage()),
+                        );
+                      },
+                      child: const Text('Cupons'),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
