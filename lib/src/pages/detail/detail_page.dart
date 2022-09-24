@@ -30,6 +30,16 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     List<int> monthModel = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    //datestrings.sort((a, b) {
+    //sorting in ascending order
+    //var c = a.date;
+    //var d = b.date;
+    //return DateTime.parse(c).compareTo(DateTime.parse(d));
+    //});
+
+    //print(datestrings);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
