@@ -1,8 +1,10 @@
 import 'package:blue_open/src/pages/home/home_page.dart';
+import 'package:blue_open/src/service/services.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
+  Services().fetchAccount();
 }
 
 class MyApp extends StatelessWidget {
