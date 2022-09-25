@@ -1,14 +1,15 @@
 import 'package:blue_open/src/pages/extract/extract_page.dart';
 import 'package:blue_open/src/pages/home/home_page.dart';
 import 'package:blue_open/src/providers/extract_provider.dart';
-import 'package:blue_open/src/service/services.dart';
+import 'package:blue_open/src/providers/home_provider.dart';
 import 'package:blue_open/src/tools/app_routes.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
-  Services().fetchAccount();
+  // Services().fetchAccount();
 }
 
 class MyApp extends StatelessWidget {
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => ExtractProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => HomeProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -28,7 +32,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: const HomePage(),
-        // initialRoute: "/home",
         routes: {
           AppRoutes.home: (ctx) => const HomePage(),
           AppRoutes.extract: (ctx) => const ExtractPage(),
