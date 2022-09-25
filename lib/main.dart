@@ -1,13 +1,14 @@
 import 'package:blue_open/src/pages/extract/extract_page.dart';
 import 'package:blue_open/src/pages/home/home_page.dart';
 import 'package:blue_open/src/providers/extract_provider.dart';
-import 'package:blue_open/src/utils/app_routes.dart';
+import 'package:blue_open/src/service/services.dart';
+import 'package:blue_open/src/tools/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
-  //Services().fetchAccount();
+  Services().fetchAccount();
 }
 
 class MyApp extends StatelessWidget {
@@ -29,8 +30,8 @@ class MyApp extends StatelessWidget {
         home: const HomePage(),
         // initialRoute: "/home",
         routes: {
-          AppRoutes.HOME: (ctx) => const HomePage(),
-          AppRoutes.EXTRACT: (ctx) => const ExtractPage(),
+          AppRoutes.home: (ctx) => const HomePage(),
+          AppRoutes.extract: (ctx) => const ExtractPage(),
         },
       ),
     );
