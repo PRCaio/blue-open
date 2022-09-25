@@ -1,7 +1,9 @@
-import 'package:blue_open/src/pages/detail/detail_page.dart';
+import 'package:blue_open/src/pages/extract/extract_page.dart';
 import 'package:blue_open/src/pages/home/home_page.dart';
-import 'package:blue_open/src/service/services.dart';
+import 'package:blue_open/src/providers/extract_provider.dart';
+import 'package:blue_open/src/utils/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,17 +15,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => ExtractProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const HomePage(),
+        // initialRoute: "/home",
+        routes: {
+          AppRoutes.HOME: (ctx) => const HomePage(),
+          AppRoutes.EXTRACT: (ctx) => const ExtractPage(),
+        },
       ),
-      // home: const HomePage(),
-      initialRoute: "/",
-      routes: {
-        "/": (_) => const HomePage(),
-        "/detail": (BuildContext context) => const DetailPage(),
-      },
     );
   }
 }

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 import 'package:fl_chart/fl_chart.dart';
 
-class DetailPage extends StatefulWidget {
-  const DetailPage({super.key});
+class ExtractPage extends StatefulWidget {
+  const ExtractPage({super.key});
 
   @override
-  State<DetailPage> createState() => _DetailPageState();
+  State<ExtractPage> createState() => _ExtractPageState();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _ExtractPageState extends State<ExtractPage> {
   @override
   void initState() {
     super.initState();
@@ -17,15 +16,6 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    //datestrings.sort((a, b) {
-    //sorting in ascending order
-    //var c = a.date;
-    //var d = b.date;
-    //return DateTime.parse(c).compareTo(DateTime.parse(d));
-    //});
-
-    //print(datestrings);
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -48,16 +38,12 @@ class _DetailPageState extends State<DetailPage> {
                   borderData: FlBorderData(show: true),
                   pieTouchData: PieTouchData(enabled: true),
                   sections: [
-                    PieChartSectionData(
-                        value: 10, color: Colors.purple, radius: 70),
-                    PieChartSectionData(
-                        value: 20, color: Colors.amber, radius: 80),
-                    PieChartSectionData(
-                        value: 30, color: Colors.green, radius: 90)
+                    PieChartSectionData(value: 10, color: Colors.purple, radius: 70),
+                    PieChartSectionData(value: 20, color: Colors.amber, radius: 80),
+                    PieChartSectionData(value: 30, color: Colors.green, radius: 90)
                   ],
                 ),
-                swapAnimationDuration:
-                    const Duration(milliseconds: 150), // Optional
+                swapAnimationDuration: const Duration(milliseconds: 150), // Optional
                 swapAnimationCurve: Curves.linear, // Optional
               ),
             ),
@@ -70,8 +56,7 @@ class _DetailPageState extends State<DetailPage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const DetailPage()),
+                        MaterialPageRoute(builder: (context) => const ExtractPage()),
                       );
                     },
                     child: const Text('Detalhar'),
@@ -80,8 +65,7 @@ class _DetailPageState extends State<DetailPage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const DetailPage()),
+                        MaterialPageRoute(builder: (context) => const ExtractPage()),
                       );
                     },
                     child: const Text('Cupons'),

@@ -9,21 +9,21 @@ class HomeDrawer extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-            decoration: const BoxDecoration(color: Colors.blue),
+            decoration: BoxDecoration(color: Colors.grey[300]),
             child: Row(
               children: const [
                 CircleAvatar(
-                  backgroundImage:
-                      NetworkImage('https://picsum.photos/id/237/200/300'),
+                  backgroundImage: NetworkImage('https://picsum.photos/id/237/200/300'),
                   radius: 30,
                 ),
                 Expanded(
                   child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text(
-                        'test',
-                        style: TextStyle(color: Colors.black),
-                      )),
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      'Zezin',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
                 ),
               ],
             ),
